@@ -71,13 +71,28 @@ public SmallGUIFrame()
         {
             testTimer1.stopTimer(); //this calls the method to the Timer
             testTimer1.getAmountList();
+            drawGraph(testTimer1);
         }
     });
     
     //adds the Graph Panel to the GUI
-    DrawingPanel centre = new DrawingPanel(testTimer1.getAmountList());
+    //DrawingPanel centre = new DrawingPanel(testTimer1.getAmountList());
+    //getFrameName().add(centre, BorderLayout.CENTER);
+    //centre.amount(100,100);
+}
+
+public void drawGraph(TimerTest timerRef)
+{
+    //adds the Graph Panel to the GUI
+    DrawingPanel centre = new DrawingPanel(timerRef.getAmountList());
     this.add(centre, BorderLayout.CENTER);
     centre.amount(100,100);
+    System.out.println("works");
+}
+
+public SmallGUIFrame getFrameName()
+{
+    return this;
 }
 
 public void setPlay(boolean set)
