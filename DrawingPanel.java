@@ -7,8 +7,10 @@ import javax.swing.JPanel;
 
 public class DrawingPanel extends JPanel
 {
+    ArrayList GraphingAmounts;
     public DrawingPanel(ArrayList Amounts)
     {
+        this.GraphingAmounts = Amounts;
     }
     
     private int x = 50, y = 10;
@@ -55,9 +57,9 @@ public class DrawingPanel extends JPanel
             }
             
             //drawing a line
-            for(i=0;, i>Amounts.size();)
+            for (int i=0; i>GraphingAmounts.size(); i++)
             {
-                
+                System.out.println("1");
             }
             
             //Adding a point
