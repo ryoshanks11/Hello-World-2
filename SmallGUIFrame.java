@@ -24,8 +24,6 @@ public class SmallGUIFrame extends JFrame
 
     public SmallGUIFrame()
     {
-
-
         // Add action listener.for the menu button
         menuFileExit.addActionListener
                 ( new ActionListener()
@@ -43,7 +41,7 @@ public class SmallGUIFrame extends JFrame
         menuFileExit.setText("Exit");
         setTitle("TEST");
         setJMenuBar(menuBar);
-        setSize(new Dimension(800, 800));
+        setSize(new Dimension(800,1000));
 
         // Add window listener.
         this.addWindowListener
@@ -68,31 +66,51 @@ public class SmallGUIFrame extends JFrame
         stopButton.setText("Stop");
 
         this.add(stopButton, BorderLayout.SOUTH);
+        
         stopButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                testTimer1.stopTimer(); //this calls the method to the Timer
+                testTimer1.stopTimer(); //this calls the method to stop the Timer
                 System.out.println(testTimer1.getAmountList());
-                setPlayFalse();
+                setPlayFalse();                
             }
         });
 
-        //adds the Graph Panel to the GUI
-        //DrawingPanel centre = new DrawingPanel(testTimer1.getAmountList());
-        //getFrameName().add(centre, BorderLayout.CENTER);
-        //centre.amount(100,100);
+        //add graph button
+        JButton graphButton = new JButton();
+        graphButton.setSize(400,400);
+        graphButton.setVisible(true);
+        graphButton.setText("Graph");
+        this.add(graphButton, BorderLayout.EAST);
+        
+        graphButton.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                drawGraph(testTimer1);              
+            }
+        });
     }
 
     public void drawGraph(TimerTest timerRef)
     {
         //adds the Graph Panel to the GUI
-        DrawingPanel centre = new DrawingPanel(timerRef.getAmountList());
-        this.add(centre, BorderLayout.CENTER);
-        centre.amount(100,100);
-        System.out.println("works");
+        DrawingPanel centreGraphing = new DrawingPanel(timerRef.getAmountList());
+        this.add(centreGraphing, BorderLayout.CENTER);
+        
+        //this method allows the graph to appear on click
+        this.revalidate();
     }
 
+    public void drawsGraphAfterTimer()
+    {
+        if ( play = false)
+        {
+            this.drawGraph(testTimer1);
+        }
+    }
+    
     public TimerTest getTimerRef()
     {
         return testTimer1;
@@ -103,6 +121,11 @@ public class SmallGUIFrame extends JFrame
         return this;
     }
 
+    public boolean getPlay()
+    {
+        return play;
+    }
+    
     public void setPlayFalse()
     {
         play = false;

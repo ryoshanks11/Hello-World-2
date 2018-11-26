@@ -20,8 +20,11 @@ public class GuiTest {
     
     public static void main(String[] args) 
     {
+        
         SmallGUIFrame test = new SmallGUIFrame();
         test.setVisible(true);
+        //test.drawGraph(test.getTimerRef());
+        test.getPlay();
         
         //The graph only needs to be plotted at the end
         //Collect the points on the graph and store them in a big array
