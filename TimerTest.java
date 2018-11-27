@@ -8,7 +8,6 @@ import java.util.TimerTask;
 public class TimerTest
 {
     private int CurrentValue = 0;
-    private int NumOfMonths = 0;
     ArrayList<Integer> AmountList = new ArrayList<Integer>();
     Timer t = new Timer();
     
@@ -23,7 +22,6 @@ public class TimerTest
                 //System.out.println(getValue(isDeposit(), randomValue()));
                 CurrentValue=getValue(isDeposit(), randomValue());
                 getCurrentValue();
-                NumOfMonths++;
                 
                 AmountList.add(CurrentValue);
             }
